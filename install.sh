@@ -1,13 +1,13 @@
 #!/bin/bash
 myip=`ifconfig | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | grep -Eo '([0-9]*\.){3}[0-9]*' | grep -v '127.0.0' | head -n1`;
 myint=`ifconfig | grep -B1 "inet addr:$myip" | head -n1 | awk '{print $1}'`;
-curl -s -o ip.txt https://raw.githubusercontent.com/zero9911/sshvpnscript/master/script/ip.txt
+curl -s -o ip.txt https://raw.githubusercontent.com/MappakkoE/master/master/ip.txt
 find=`grep $myip ip.txt`
 if [ "$find" = "" ]
 then
 clear
 echo "
-      System Menu By MKSSHVPN
+      System Menu By MAPPAKKOE
 [ YOUR IP NOT REGISTER ON MY SCRIPT ]
          RM 20 PER IP/VPS
 ----==== CONTACT FOR REGISTER ====----
@@ -56,24 +56,24 @@ PLEASE WAIT THIS MAY TAKE A FEW MINUTES
 COMPLETE 30%
 "
 # user-list
-wget https://raw.githubusercontent.com/zero9911/sshvpnscript/master/script/user-list
+wget https://raw.githubusercontent.com/MappakkoE/master/master/user-list
 mv user-list /usr/local/bin/
 chmod +x  /usr/local/bin/user-list
 
 #menu
-wget https://raw.githubusercontent.com/zero9911/sshvpnscript/master/script/menu
+wget https://raw.githubusercontent.com/MappakkoE/master/master/menu
 mv menu /usr/local/bin/
 chmod +x  /usr/local/bin/menu
 
 
 #status
-wget https://raw.githubusercontent.com/zero9911/sshvpnscript/master/script/status
+wget https://raw.githubusercontent.com/MappakkoE/master/master/status
 mv status /usr/local/bin/
 chmod +x  /usr/local/bin/status
 
 
 #monssh
-wget https://raw.githubusercontent.com/zero9911/sshvpnscript/master/script/monssh
+wget https://raw.githubusercontent.com/MappakkoE/master/master/monssh
 mv monssh /usr/local/bin/
 chmod +x  /usr/local/bin/monssh
 
@@ -161,20 +161,9 @@ service squid3 restart
 cd
 
 #swap ram
-wget https://raw.githubusercontent.com/zero9911/sshvpnscript/master/script/swap-ram.sh
+wget https://raw.githubusercontent.com/MappakkoE/master/master/swap-ram.sh
 chmod +x  swap-ram.sh
 ./swap-ram.sh
-
-clear
-
-echo "
-BLOCK TORRENT PORT INSTALL
-COMPLETE 95%
-"
-#bonus block torrent
-wget https://raw.githubusercontent.com/zero9911/sshvpnscript/master/script/torrent.sh
-chmod +x  torrent.sh
-./torrent.sh
 
 clear
 echo "
@@ -182,7 +171,7 @@ COMPLET 100%
 DONE.
 "
 echo "========================================"  | tee -a log-install.txt
-echo "MKSSHVPN"  | tee -a log-install.txt
+echo "MAPPAKKOE"  | tee -a log-install.txt
 echo "----------------------------------------"  | tee -a log-install.txt
 echo ""  | tee -a log-install.txt
 echo "Webmin : http://$myip:10000/"  | tee -a log-install.txt
@@ -194,4 +183,4 @@ echo "========================================"  | tee -a log-install.txt
 echo "      PLEASE REBOOT TAKE EFFECT !"
 echo "========================================"  | tee -a log-install.txt
 cat /dev/null > ~/.bash_history && history -c
-rm install-1.sh
+rm install.sh
